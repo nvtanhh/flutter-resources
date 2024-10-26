@@ -51,7 +51,7 @@ class WeatherRemoteDatasourceImpl implements WeatherRemoteDatasource {
     } else {
       throw ServerException(
         code: response.statusCode,
-        message: (jsonDecode(response.body))['message'] as String,
+        message: jsonDecode(response.body)['message'] as String,
       );
     }
   }
@@ -79,7 +79,7 @@ class WeatherRemoteDatasourceImpl implements WeatherRemoteDatasource {
     } else {
       throw ServerException(
         code: response.statusCode,
-        message: (jsonDecode(response.body))['message'] as String,
+        message: jsonDecode(response.body)['message'] as String,
       );
     }
   }

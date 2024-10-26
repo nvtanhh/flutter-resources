@@ -7,11 +7,11 @@ enum TagType { status, chip, rateSmall }
 class AppTag extends StatelessWidget {
   const AppTag(
     this.text, {
-    Key? key,
+    super.key,
     required this.type,
     this.icon,
     this.onPressed,
-  }) : super(key: key);
+  });
 
   final String text;
   final TagType type;
@@ -63,7 +63,7 @@ class AppTag extends StatelessWidget {
               text,
               style: Theme.of(context)
                   .textTheme
-                  .caption!
+                  .bodySmall!
                   .copyWith(color: Colors.white),
             ),
           ),
@@ -98,9 +98,9 @@ class AppTag extends StatelessWidget {
                   text,
                   style: Theme.of(context)
                       .textTheme
-                      .caption!
+                      .bodySmall!
                       .copyWith(color: Theme.of(context).colorScheme.secondary),
-                )
+                ),
               ],
             ),
           ),

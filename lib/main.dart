@@ -9,11 +9,8 @@ import 'presentation/app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  BlocOverrides.runZoned(
-    () async {
-      await configureDependencies();
-      runApp(TodoApp());
-    },
-    blocObserver: AppBlocObserver(),
-  );
+  configureDependencies();
+  Bloc.observer = AppBlocObserver();
+
+  runApp(MyApp());
 }

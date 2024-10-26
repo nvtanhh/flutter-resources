@@ -28,7 +28,7 @@ class AppTextField extends StatelessWidget {
   final VoidCallback? onTap;
 
   const AppTextField({
-    Key? key,
+    super.key,
     this.labelText,
     this.style,
     this.focusNode,
@@ -49,7 +49,7 @@ class AppTextField extends StatelessWidget {
     this.onTap,
     this.onChanged,
     this.onSubmitted,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

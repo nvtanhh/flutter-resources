@@ -13,7 +13,7 @@ import 'widgets/searchable_app_bar.dart';
 import 'widgets/temperature.dart';
 
 class WeatherPage extends StatelessWidget {
-  const WeatherPage({Key? key}) : super(key: key);
+  const WeatherPage({super.key});
 
   Future<void> _onRefresh(BuildContext context) async {
     context.read<WeatherBloc>().add(
@@ -158,10 +158,8 @@ class WeatherPage extends StatelessWidget {
             title,
             type: ThemedTextType.titleMedium,
             style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  color: Theme.of(context)
-                      .colorScheme
-                      .onBackground
-                      .withOpacity(.6),
+                  color:
+                      Theme.of(context).colorScheme.onSurface.withOpacity(.6),
                 ),
           ),
           AppSpacer.sizedBoxH8,

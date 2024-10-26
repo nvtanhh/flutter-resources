@@ -17,7 +17,7 @@ class CommonPage extends StatelessWidget {
   final bool isBlurBackground;
 
   const CommonPage({
-    Key? key,
+    super.key,
     required this.body,
     this.appBar,
     this.bottomAppBar,
@@ -28,7 +28,7 @@ class CommonPage extends StatelessWidget {
     this.backgroundColor,
     this.backgroundImage,
     this.isBlurBackground = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

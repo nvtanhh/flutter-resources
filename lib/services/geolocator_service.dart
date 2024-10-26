@@ -15,12 +15,14 @@ class GeolocatorService {
     heading: 0.0,
     speed: 0.0,
     speedAccuracy: 0.0,
+    altitudeAccuracy: 3.0,
+    headingAccuracy: 5.0,
   );
   Future<Position> getCurrentPosition() async {
     try {
       return await Geolocator.getCurrentPosition();
     } catch (e) {
-      locator<Logger>().e(e.toString());
+      getIt<Logger>().e(e.toString());
       return defaultPosition;
     }
   }

@@ -14,7 +14,7 @@ class LanguageCubit extends Cubit<LanguageState> {
 
   void changeLanguage(Locale locale) {
     emit(state.copyWith(locale: locale));
-    locator<WeatherBloc>().add(RefreshWeather(language: locale.languageCode));
+    getIt<WeatherBloc>().add(RefreshWeather(language: locale.languageCode));
   }
 
   Locale? localeResolutionCallback(

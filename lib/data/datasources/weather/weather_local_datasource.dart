@@ -32,8 +32,11 @@ class WeatherLocalDatasourceImpl implements WeatherLocalDatasource {
         jsonDecode(storedData) as Map<String, dynamic>,
       );
     } catch (e, stackTrace) {
-      locator<Logger>()
-          .e('WeatherLocalDatasourceImpl - getWeather', e, stackTrace);
+      getIt<Logger>().e(
+        'WeatherLocalDatasourceImpl - getWeather',
+        error: e,
+        stackTrace: stackTrace,
+      );
       _preferencesStorage.remove(StorageConstants.weather);
       return null;
     }

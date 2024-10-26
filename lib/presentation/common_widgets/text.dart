@@ -10,18 +10,18 @@ class ThemedText extends StatelessWidget {
 
   const ThemedText(
     this.text, {
-    Key? key,
+    super.key,
     this.style,
     this.textAlign,
     this.overflow,
     this.maxLines,
     this.type = ThemedTextType.bodyMedium,
-  }) : super(key: key);
+  });
 
   static TextStyle getTextStyle(BuildContext context, ThemedTextType type) {
     switch (type) {
       case ThemedTextType.heading6:
-        return Theme.of(context).textTheme.headline6!;
+        return Theme.of(context).textTheme.titleLarge!;
       case ThemedTextType.headingLarge:
         return Theme.of(context).textTheme.headlineLarge!;
       case ThemedTextType.headingMedium:
@@ -35,9 +35,9 @@ class ThemedText extends StatelessWidget {
       case ThemedTextType.titleSmall:
         return Theme.of(context).textTheme.titleSmall!;
       case ThemedTextType.subTitle1:
-        return Theme.of(context).textTheme.subtitle1!;
+        return Theme.of(context).textTheme.titleMedium!;
       case ThemedTextType.subTitle2:
-        return Theme.of(context).textTheme.subtitle2!;
+        return Theme.of(context).textTheme.titleSmall!;
       case ThemedTextType.labelLarge:
         return Theme.of(context).textTheme.labelLarge!;
       case ThemedTextType.labelMedium:
@@ -51,11 +51,11 @@ class ThemedText extends StatelessWidget {
       case ThemedTextType.bodySmall:
         return Theme.of(context).textTheme.bodySmall!;
       case ThemedTextType.button:
-        return Theme.of(context).textTheme.button!;
+        return Theme.of(context).textTheme.labelLarge!;
       case ThemedTextType.caption:
-        return Theme.of(context).textTheme.caption!;
+        return Theme.of(context).textTheme.bodySmall!;
       case ThemedTextType.overline:
-        return Theme.of(context).textTheme.overline!;
+        return Theme.of(context).textTheme.labelSmall!;
     }
   }
 

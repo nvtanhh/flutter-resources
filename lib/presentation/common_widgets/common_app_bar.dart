@@ -15,7 +15,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool autoImplyLeading;
 
   const CommonAppBar({
-    Key? key,
+    super.key,
     this.backgroundColor,
     this.textIconColor = Colors.black,
     this.title = '',
@@ -24,7 +24,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.height = kToolbarHeight,
     this.leading,
     this.autoImplyLeading = true,
-  }) : super(key: key);
+  });
 
   @override
   Size get preferredSize => Size.fromHeight(height!);
@@ -54,7 +54,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget? _buildBackButton(BuildContext context) {
     if (!autoImplyLeading) return null;
     return IconButton(
-      onPressed: () => context.router.pop(),
+      onPressed: () => context.router.back(),
       icon: AppIcon(
         AppIcons.backIOS,
         color: Theme.of(context).iconTheme.color,

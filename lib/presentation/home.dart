@@ -1,18 +1,19 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import 'common_widgets/common_widget.index.dart';
 import 'pages/setting/ui/setting_wrapper.dart';
 import 'pages/weather/ui/weather_wrapper.dart';
 
-class AppContainer extends StatefulWidget {
-  const AppContainer({Key? key}) : super(key: key);
+@RoutePage()
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<AppContainer> createState() => _AppContainerState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _AppContainerState extends State<AppContainer>
-    with WidgetsBindingObserver {
+class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   int selectedIndex = 0;
 
   @override
@@ -48,8 +49,8 @@ class _AppContainerState extends State<AppContainer>
       body: IndexedStack(
         index: selectedIndex,
         children: const <Widget>[
-          TodoWrapper(),
-          SettingWrapper(),
+          WeatherWrapperPage(),
+          SettingWrapperPage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

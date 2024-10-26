@@ -12,13 +12,13 @@ class GlassContainer extends StatelessWidget {
   final EdgeInsets padding;
 
   const GlassContainer({
-    Key? key,
+    super.key,
     required this.child,
     this.blurSigma = 1.0,
     this.borderRadius = AppSpacer.radius8,
     this.color,
     this.padding = AppSpacer.edgeInsetsAll8,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

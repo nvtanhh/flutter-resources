@@ -19,6 +19,8 @@ Position get mockPosition => Position(
       heading: 0.0,
       speed: 0.0,
       speedAccuracy: 0.0,
+      altitudeAccuracy: 3.0,
+      headingAccuracy: 5.0,
     );
 
 void main() {

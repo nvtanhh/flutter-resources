@@ -10,20 +10,20 @@ class AppPickerItem extends StatelessWidget {
   final VoidCallback onPressed;
 
   const AppPickerItem({
-    Key? key,
+    super.key,
     required this.title,
     this.value,
     this.leading,
     this.loading = false,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     Color color = Theme.of(context).hintColor;
     String titlePicker = title;
     if (value != null && value!.isNotEmpty) {
-      color = Theme.of(context).textTheme.subtitle1!.color!;
+      color = Theme.of(context).textTheme.titleMedium!.color!;
       titlePicker = value!;
     }
 
@@ -77,7 +77,7 @@ class AppPickerItem extends StatelessWidget {
               ),
             ),
             trailingWidget,
-            const SizedBox(width: 8)
+            const SizedBox(width: 8),
           ],
         ),
       ),

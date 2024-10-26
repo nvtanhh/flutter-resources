@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -5,8 +6,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../../../common_widgets/common_widget.index.dart';
 import '../../../../shared_blocs/theme/theme_cubit.dart';
 
+@RoutePage()
 class FontSettingPage extends StatelessWidget {
-  const FontSettingPage({Key? key}) : super(key: key);
+  const FontSettingPage({super.key});
 
   void _onChange(BuildContext context, String font) {
     context.read<ThemeCubit>().onChangeTheme(font: font);

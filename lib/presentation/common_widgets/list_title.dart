@@ -12,14 +12,14 @@ class AppListTitle extends StatelessWidget {
   final bool border;
 
   const AppListTitle({
-    Key? key,
+    super.key,
     required this.title,
     this.subtitle,
     this.leading,
     this.trailing,
     this.onPressed,
     this.border = true,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class AppListTitle extends StatelessWidget {
           subtitle!,
           style: Theme.of(context)
               .textTheme
-              .bodyText2!
+              .bodyMedium!
               .copyWith(color: Theme.of(context).primaryColor),
         ),
       );
@@ -71,7 +71,7 @@ class AppListTitle extends StatelessWidget {
                               style:
                                   const TextStyle(fontWeight: FontWeight.bold),
                             ),
-                            subTitle
+                            subTitle,
                           ],
                         ),
                       ),
@@ -79,7 +79,7 @@ class AppListTitle extends StatelessWidget {
                     Padding(
                       padding: AppSpacer.edgeInsetsLeft16,
                       child: trailing ?? AppSpacer.emptyBox,
-                    )
+                    ),
                   ],
                 ),
               ),

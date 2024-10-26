@@ -11,11 +11,11 @@ class SearchableWeatherAppBar extends StatefulWidget {
   final bool isRefreshing;
 
   const SearchableWeatherAppBar({
-    Key? key,
+    super.key,
     required this.weather,
     required this.onSearch,
     this.isRefreshing = false,
-  }) : super(key: key);
+  });
 
   @override
   State<SearchableWeatherAppBar> createState() =>

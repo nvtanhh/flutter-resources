@@ -36,7 +36,11 @@ class WeatherRepositoryImpl extends WeatherRepository {
       localDatasource.cacheWeather(weather);
       return weather;
     } on ServerException catch (e, stackTrace) {
-      locator<Logger>().e('ServerException', e, stackTrace);
+      getIt<Logger>().e(
+        'ServerException',
+        error: e,
+        stackTrace: stackTrace,
+      );
       rethrow;
     }
   }
@@ -56,7 +60,11 @@ class WeatherRepositoryImpl extends WeatherRepository {
       localDatasource.cacheWeather(weather);
       return weather;
     } on ServerException catch (e, stackTrace) {
-      locator<Logger>().e('ServerException', e, stackTrace);
+      getIt<Logger>().e(
+        'ServerException',
+        error: e,
+        stackTrace: stackTrace,
+      );
       rethrow;
     }
   }

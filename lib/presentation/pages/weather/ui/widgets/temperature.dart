@@ -7,8 +7,8 @@ class TemperatureWidget extends StatelessWidget {
 
   const TemperatureWidget(
     this.temperature, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +16,9 @@ class TemperatureWidget extends StatelessWidget {
       children: [
         ThemedText(
           temperature,
-          style: Theme.of(context).textTheme.headline1!.copyWith(
+          style: Theme.of(context).textTheme.displayLarge!.copyWith(
                 fontWeight: FontWeight.bold,
-                color: Theme.of(context).colorScheme.onBackground,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
         ),
         Positioned(
@@ -28,7 +28,7 @@ class TemperatureWidget extends StatelessWidget {
             offset: const Offset(45, -10),
             child: ThemedText(
               '°',
-              style: Theme.of(context).textTheme.headline1!.copyWith(
+              style: Theme.of(context).textTheme.displayLarge!.copyWith(
                     fontWeight: FontWeight.w600,
                     color: Theme.of(context).colorScheme.primary,
                   ),

@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -7,8 +8,9 @@ import '../../../../../core/utils/language.dart';
 import '../../../../common_widgets/common_widget.index.dart';
 import '../../../../shared_blocs/language/language_cubit.dart';
 
+@RoutePage()
 class LanguageSettingPage extends StatefulWidget {
-  const LanguageSettingPage({Key? key}) : super(key: key);
+  const LanguageSettingPage({super.key});
 
   @override
   State<LanguageSettingPage> createState() => _LanguageSettingPageState();
@@ -19,18 +21,13 @@ class _LanguageSettingPageState extends State<LanguageSettingPage> {
   late List<Locale> supportedLocales;
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   void didChangeDependencies() {
     supportedLocales = context.read<LanguageCubit>().state.supportedLocales;
     super.didChangeDependencies();
   }
 
   void _onChangeLanguage(Locale locale) {
-    locator<LanguageCubit>().changeLanguage(locale);
+    getIt<LanguageCubit>().changeLanguage(locale);
   }
 
   @override
@@ -42,7 +39,7 @@ class _LanguageSettingPageState extends State<LanguageSettingPage> {
   void _filterLanguage(String text) {
     if (text.isEmpty) {
       setState(() {
-        supportedLocales = locator<LanguageCubit>().state.supportedLocales;
+        supportedLocales = getIt<LanguageCubit>().state.supportedLocales;
       });
       return;
     }

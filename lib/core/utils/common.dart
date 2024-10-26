@@ -13,13 +13,13 @@ class CommonUtils {
           child: Container(
             padding: AppSpacer.edgeInsetsAll12,
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.onBackground.withOpacity(.8),
+              color: Theme.of(context).colorScheme.onSurface.withOpacity(.8),
               borderRadius: AppSpacer.radius24,
             ),
             child: ThemedText(
               content,
-              style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                    color: Theme.of(context).colorScheme.background,
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: Theme.of(context).colorScheme.surface,
                   ),
               textAlign: TextAlign.center,
             ),

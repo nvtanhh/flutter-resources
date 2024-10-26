@@ -2,18 +2,19 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import '../../../../../configs/configs.index.dart';
 
-import '../../../../../core/extensions/extensions.index.dart';
+import '../../../../../configs/configs.index.dart';
+import '../../../../../core/extensions/string_extension.dart';
 import '../../../../common_widgets/common_widget.index.dart';
 import '../../../../shared_blocs/theme/theme_cubit.dart';
 
+@RoutePage()
 class ThemeColorSettingPage extends StatelessWidget {
-  const ThemeColorSettingPage({Key? key}) : super(key: key);
+  const ThemeColorSettingPage({super.key});
 
   void _onChange(ColorTheme theme, {required BuildContext context}) {
-    locator<ThemeCubit>().onChangeTheme(colorTheme: theme);
-    context.router.pop();
+    getIt<ThemeCubit>().onChangeTheme(colorTheme: theme);
+    context.router.back();
   }
 
   @override

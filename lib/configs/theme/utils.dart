@@ -14,7 +14,7 @@ class ThemeUtils {
         colorScheme = ColorScheme.light(
           primary: theme.primary,
           secondary: theme.secondary,
-          background: const Color(0xfffcfcfc),
+          surface: const Color(0xfffcfcfc),
           error: Colors.red,
         );
         break;
@@ -22,7 +22,7 @@ class ThemeUtils {
         colorScheme = ColorScheme.dark(
           primary: theme.primary,
           secondary: theme.secondary,
-          background: const Color(0xff010101),
+          surface: const Color(0xff010101),
           error: Colors.red,
         );
         break;
@@ -30,7 +30,7 @@ class ThemeUtils {
     }
 
     final isDark = colorScheme!.brightness == Brightness.dark;
-    final appBarColor = isDark ? colorScheme.surface : colorScheme.background;
+    final appBarColor = isDark ? colorScheme.surface : colorScheme.surface;
     final indicatorColor = isDark ? colorScheme.onSurface : colorScheme.primary;
 
     return ThemeData(
@@ -40,17 +40,13 @@ class ThemeUtils {
         backgroundColor: appBarColor,
         foregroundColor: isDark ? Colors.white : Colors.black,
       ),
-      canvasColor: colorScheme.background,
-      scaffoldBackgroundColor: colorScheme.background,
-      bottomAppBarColor: colorScheme.surface,
+      canvasColor: colorScheme.surface,
+      scaffoldBackgroundColor: colorScheme.surface,
       cardColor: colorScheme.surface,
       dividerColor: colorScheme.onSurface.withOpacity(0.12),
-      backgroundColor: colorScheme.background,
-      dialogBackgroundColor: colorScheme.background,
-      errorColor: colorScheme.error,
+      dialogBackgroundColor: colorScheme.surface,
       indicatorColor: indicatorColor,
       applyElevationOverlayColor: isDark,
-      colorScheme: colorScheme,
 
       ///Custom
       fontFamily: font,
@@ -80,6 +76,10 @@ class ThemeUtils {
         thickness: 0.8,
         space: 0,
       ),
+      bottomAppBarTheme: BottomAppBarTheme(color: colorScheme.surface),
+      colorScheme: colorScheme
+          .copyWith(surface: colorScheme.surface)
+          .copyWith(error: colorScheme.error),
     );
   }
 }

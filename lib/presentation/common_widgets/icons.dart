@@ -15,11 +15,11 @@ class AppIcon extends StatelessWidget {
 
   const AppIcon(
     this.iconData, {
-    Key? key,
+    super.key,
     this.size = RpIconSize.medium,
     this.customSize,
     this.color,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

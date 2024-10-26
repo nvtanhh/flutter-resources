@@ -13,7 +13,7 @@ import '../../../shared_blocs/language/language_cubit.dart';
 import '../../../shared_blocs/theme/theme_cubit.dart';
 
 class SettingPage extends StatelessWidget {
-  const SettingPage({Key? key}) : super(key: key);
+  const SettingPage({super.key});
 
   void _applyDarkMode(BuildContext context, DarkModeOption darkOption) {
     context.read<ThemeCubit>().onChangeTheme(darkOption: darkOption);
@@ -25,9 +25,9 @@ class SettingPage extends StatelessWidget {
 
   Future<void> _showDarkModeSetting(BuildContext context) async {
     DarkModeOption darkOption = context.read<ThemeCubit>().state.darkOption;
+
     showDialog<bool>(
       context: context,
-      barrierDismissible: true,
       builder: (BuildContext context) {
         return StatefulBuilder(
           builder: (context, setState) {

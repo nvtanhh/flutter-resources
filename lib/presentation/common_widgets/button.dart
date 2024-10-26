@@ -15,18 +15,18 @@ class AppButton extends StatelessWidget {
 
   const AppButton(
     this.text, {
-    Key? key,
+    super.key,
     required this.onPressed,
     this.icon,
     this.loading = false,
     this.disabled = false,
     this.type = ButtonType.normal,
     this.mainAxisSize = MainAxisSize.min,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    Widget _buildLoading(Color color) {
+    Widget buildLoading(Color color) {
       if (!loading) return Container();
       return Row(
         children: [
@@ -38,7 +38,7 @@ class AppButton extends StatelessWidget {
               strokeWidth: 1.5,
               color: color,
             ),
-          )
+          ),
         ],
       );
     }
@@ -54,7 +54,7 @@ class AppButton extends StatelessWidget {
               ),
             ),
             onPressed: disabled ? null : onPressed,
-            icon: icon!,
+            icon: icon,
             label: Row(
               mainAxisSize: mainAxisSize,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -67,7 +67,7 @@ class AppButton extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                _buildLoading(Theme.of(context).primaryColor)
+                buildLoading(Theme.of(context).primaryColor),
               ],
             ),
           );
@@ -92,7 +92,7 @@ class AppButton extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              _buildLoading(Theme.of(context).primaryColor)
+              buildLoading(Theme.of(context).primaryColor),
             ],
           ),
         );
@@ -101,7 +101,7 @@ class AppButton extends StatelessWidget {
         if (icon != null) {
           return TextButton.icon(
             onPressed: disabled ? null : onPressed,
-            icon: icon!,
+            icon: icon,
             label: Row(
               mainAxisSize: mainAxisSize,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -114,11 +114,12 @@ class AppButton extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                _buildLoading(Theme.of(context).primaryColor)
+                buildLoading(Theme.of(context).primaryColor),
               ],
             ),
           );
         }
+
         return TextButton(
           onPressed: disabled ? null : onPressed,
           child: Row(
@@ -133,7 +134,7 @@ class AppButton extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              _buildLoading(Theme.of(context).primaryColor)
+              buildLoading(Theme.of(context).primaryColor),
             ],
           ),
         );
@@ -147,7 +148,7 @@ class AppButton extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
               ),
             ),
-            icon: icon!,
+            icon: icon,
             label: Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -160,11 +161,12 @@ class AppButton extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                _buildLoading(Colors.white)
+                buildLoading(Colors.white),
               ],
             ),
           );
         }
+
         return ElevatedButton(
           onPressed: disabled ? null : onPressed,
           style: ElevatedButton.styleFrom(
@@ -181,11 +183,10 @@ class AppButton extends StatelessWidget {
                 text,
                 type: ThemedTextType.button,
                 style: const TextStyle(
-                  color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              _buildLoading(Colors.white)
+              buildLoading(Colors.white),
             ],
           ),
         );
